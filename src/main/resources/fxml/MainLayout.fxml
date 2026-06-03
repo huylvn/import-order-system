@@ -27,23 +27,23 @@
             <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll">
                 <VBox spacing="4">
                     <Button text="Tổng quan" styleClass="nav-button,nav-button-active"
-                            onAction="#onDashboard" maxWidth="Infinity"/>
+                            fx:id="dashboardButton" onAction="#onDashboard" maxWidth="Infinity"/>
                     <Button text="Mặt hàng" styleClass="nav-button"
-                            onAction="#onMerchandise" maxWidth="Infinity"/>
+                            fx:id="merchandiseButton" onAction="#onMerchandise" maxWidth="Infinity"/>
                     <Button text="Site nhập khẩu" styleClass="nav-button"
-                            onAction="#onImportSite" maxWidth="Infinity"/>
+                            fx:id="importSiteButton" onAction="#onImportSite" maxWidth="Infinity"/>
                     <Button text="Danh mục site" styleClass="nav-button"
-                            onAction="#onSiteCatalog" maxWidth="Infinity"/>
+                            fx:id="siteCatalogButton" onAction="#onSiteCatalog" maxWidth="Infinity"/>
                     <Button text="Tồn kho" styleClass="nav-button"
-                            onAction="#onInventory" maxWidth="Infinity"/>
+                            fx:id="inventoryButton" onAction="#onInventory" maxWidth="Infinity"/>
                     <Button text="Yêu cầu nhập hàng" styleClass="nav-button"
-                            onAction="#onImportRequest" maxWidth="Infinity"/>
+                            fx:id="importRequestButton" onAction="#onImportRequest" maxWidth="Infinity"/>
                     <Button text="Kết quả phân bổ" styleClass="nav-button"
-                            onAction="#onAllocationResult" maxWidth="Infinity"/>
+                            fx:id="allocationResultButton" onAction="#onAllocationResult" maxWidth="Infinity"/>
                     <Button text="Đơn đặt site" styleClass="nav-button"
-                            onAction="#onSiteOrder" maxWidth="Infinity"/>
+                            fx:id="siteOrderButton" onAction="#onSiteOrder" maxWidth="Infinity"/>
                     <Button text="Nhập kho" styleClass="nav-button"
-                            onAction="#onWarehouseReceiving" maxWidth="Infinity"/>
+                            fx:id="warehouseReceivingButton" onAction="#onWarehouseReceiving" maxWidth="Infinity"/>
                 </VBox>
             </ScrollPane>
         </VBox>

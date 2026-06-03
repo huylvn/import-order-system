@@ -215,6 +215,14 @@ Người chạy project chỉ cần có:
 
 Không cần tự cài JDK 21 hoặc Maven. Project đã có script tự tải đúng JDK 21 và Maven vào thư mục local `.tools/`.
 
+Lưu ý: không chạy trực tiếp `mvn clean javafx:run` nếu máy chưa cài và cấu hình JDK 21. Nếu Maven đang dùng Java 17 hoặc thấp hơn, project sẽ báo lỗi:
+
+```text
+release version 21 not supported
+```
+
+Khi đó hãy chạy bằng script bên dưới.
+
 ### Bước 1: Clone project
 
 ```bash
