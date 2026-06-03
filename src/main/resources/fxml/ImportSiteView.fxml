@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.importorder.controller.ImportSiteController"
+            styleClass="master-view">
+    <top>
+        <Label text="Quản lý site nhập khẩu" styleClass="view-title">
+            <padding>
+                <Insets top="16" right="16" bottom="8" left="16"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <TableView fx:id="siteTable">
+            <columns>
+                <TableColumn fx:id="siteCodeColumn" text="Mã site" prefWidth="100"/>
+                <TableColumn fx:id="siteNameColumn" text="Tên site" prefWidth="200"/>
+                <TableColumn fx:id="shipDaysColumn" text="Ngày tàu" prefWidth="90"/>
+                <TableColumn fx:id="airDaysColumn" text="Ngày bay" prefWidth="90"/>
+                <TableColumn fx:id="otherInfoColumn" text="Thông tin khác" prefWidth="220"/>
+            </columns>
+            <padding>
+                <Insets left="16" right="16"/>
+            </padding>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox spacing="12" styleClass="form-panel">
+            <padding>
+                <Insets top="12" right="16" bottom="16" left="16"/>
+            </padding>
+            <GridPane hgap="10" vgap="10">
+                <Label text="Mã site:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="siteCodeField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Tên site:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="siteNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="280"/>
+                <Label text="Số ngày giao bằng tàu:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="shipDaysField" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="80"/>
+                <Label text="Số ngày giao bằng máy bay:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="airDaysField" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="80"/>
+                <Label text="Thông tin khác:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextField fx:id="otherInfoField" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="320"/>
+            </GridPane>
+            <HBox spacing="8">
+                <Button text="Thêm" onAction="#onAdd"/>
+                <Button text="Cập nhật" onAction="#onUpdate"/>
+                <Button text="Xóa" onAction="#onDelete"/>
+                <Button text="Làm sạch" onAction="#onClear"/>
+                <Button text="Làm mới" onAction="#onRefresh"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

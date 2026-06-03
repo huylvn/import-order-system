@@ -1,0 +1,87 @@
+package com.importorder.controller;
+
+import com.importorder.context.ApplicationContext;
+import com.importorder.view.ViewFactory;
+import com.importorder.view.ViewType;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+
+/**
+ * Main shell controller: sidebar navigation and content area swapping.
+ * Business logic is not handled here — only UI navigation skeleton.
+ */
+public class MainController {
+
+    @FXML
+    private StackPane contentArea;
+
+    @FXML
+    private Label statusLabel;
+
+    private final ViewFactory viewFactory = new ViewFactory(
+            ApplicationContext.getInstance()::createController);
+
+    @FXML
+    private void initialize() {
+        showView(ViewType.DASHBOARD);
+    }
+
+    @FXML
+    private void onDashboard() {
+        showView(ViewType.DASHBOARD);
+    }
+
+    @FXML
+    private void onMerchandise() {
+        showView(ViewType.MERCHANDISE);
+    }
+
+    @FXML
+    private void onImportSite() {
+        showView(ViewType.IMPORT_SITE);
+    }
+
+    @FXML
+    private void onSiteCatalog() {
+        showView(ViewType.SITE_CATALOG);
+    }
+
+    @FXML
+    private void onInventory() {
+        showView(ViewType.INVENTORY);
+    }
+
+    @FXML
+    private void onImportRequest() {
+        showView(ViewType.IMPORT_REQUEST);
+    }
+
+    @FXML
+    private void onAllocationResult() {
+        showView(ViewType.ALLOCATION_RESULT);
+    }
+
+    @FXML
+    private void onSiteOrder() {
+        showView(ViewType.SITE_ORDER);
+    }
+
+    @FXML
+    private void onWarehouseReceiving() {
+        showView(ViewType.WAREHOUSE_RECEIVING);
+    }
+
+    /**
+     * Loads the given view into the central content area.
+     */
+    public void showView(ViewType viewType) {
+        Node view = viewFactory.createView(viewType);
+        contentArea.getChildren().setAll(view);
+        if (statusLabel != null) {
+            statusLabel.setText(viewType.getDisplayName());
+        }
+    }
+
+}

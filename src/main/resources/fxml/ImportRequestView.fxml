@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" styleClass="placeholder-view" spacing="8">
+    <Label text="Yêu cầu nhập hàng" styleClass="placeholder-title"/>
+    <Label text="Danh sách mặt hàng cần nhập do bộ phận kinh doanh tạo." styleClass="placeholder-message"/>
+</VBox>

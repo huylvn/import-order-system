@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.importorder.controller.AllocationController"
+            styleClass="master-view">
+    <top>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="16" right="16" bottom="8" left="16"/>
+            </padding>
+            <Label text="Kết quả phân bổ" styleClass="view-title"/>
+            <HBox spacing="8">
+                <Label text="Yêu cầu nhập:"/>
+                <ComboBox fx:id="requestComboBox" prefWidth="360"/>
+                <Button fx:id="runAllocationButton" text="Chạy phân bổ" onAction="#onRunAllocation" disable="true"/>
+                <Button fx:id="confirmOrdersButton" text="Xác nhận đơn đặt" onAction="#onConfirmOrders" disable="true"/>
+                <Button text="Làm mới" onAction="#onRefresh"/>
+            </HBox>
+            <GridPane hgap="12" vgap="8" styleClass="form-panel">
+                <padding>
+                    <Insets top="10" right="12" bottom="10" left="12"/>
+                </padding>
+                <Label text="Mã yêu cầu:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="requestCodeLabel" text="-" styleClass="value-label" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Ngày yêu cầu:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <Label fx:id="requestDateLabel" text="-" styleClass="value-label" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                <Label text="Trạng thái:" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+                <Label fx:id="requestStatusLabel" text="-" styleClass="value-label" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+            </GridPane>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="allocationTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="merchandiseCodeColumn" text="Mã mặt hàng" prefWidth="140"/>
+                <TableColumn fx:id="requestedQuantityColumn" text="Số lượng yêu cầu" prefWidth="150"/>
+                <TableColumn fx:id="siteCodeColumn" text="Mã site" prefWidth="110"/>
+                <TableColumn fx:id="siteNameColumn" text="Tên site" prefWidth="180"/>
+                <TableColumn fx:id="allocatedQuantityColumn" text="Số lượng phân bổ" prefWidth="150"/>
+                <TableColumn fx:id="unitColumn" text="Đơn vị" prefWidth="80"/>
+                <TableColumn fx:id="deliveryMeansColumn" text="Phương thức giao" prefWidth="150"/>
+                <TableColumn fx:id="allocationStatusColumn" text="Trạng thái" prefWidth="100"/>
+                <TableColumn fx:id="errorMessageColumn" text="Thông báo lỗi" prefWidth="320"/>
+            </columns>
+            <padding>
+                <Insets left="16" right="16" bottom="16"/>
+            </padding>
+        </TableView>
+    </center>
+</BorderPane>

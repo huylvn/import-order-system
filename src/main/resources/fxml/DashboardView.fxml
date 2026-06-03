@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.importorder.controller.DashboardController"
+            styleClass="master-view">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="16" right="16" bottom="8" left="16"/>
+            </padding>
+            <Label text="Tổng quan" styleClass="view-title"/>
+            <Button text="Làm mới" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="16">
+            <padding>
+                <Insets top="8" right="16" bottom="16" left="16"/>
+            </padding>
+            <GridPane hgap="24" vgap="12" styleClass="stats-grid">
+                <Label text="Tổng số yêu cầu nhập:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="totalRequestsLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Yêu cầu đã gửi:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="submittedRequestsLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Yêu cầu đã phân bổ:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label fx:id="allocatedRequestsLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Yêu cầu phân bổ lỗi:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <Label fx:id="failedRequestsLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Tổng số đơn đặt site:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <Label fx:id="totalSiteOrdersLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            </GridPane>
+            <Label text="Cảnh báo tồn kho thấp (tồn kho ≤ 20)" styleClass="section-title"/>
+            <TableView fx:id="shortageTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="siteCodeColumn" text="Mã site" prefWidth="120"/>
+                    <TableColumn fx:id="merchandiseCodeColumn" text="Mã mặt hàng" prefWidth="160"/>
+                    <TableColumn fx:id="quantityColumn" text="Tồn kho" prefWidth="100"/>
+                    <TableColumn fx:id="unitColumn" text="Đơn vị" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
